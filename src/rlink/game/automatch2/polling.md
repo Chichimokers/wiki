@@ -20,30 +20,30 @@ Cache-Control: no-store
 appBinCRC=9876&callNum=123&connect_id=ccc&dataCRC=6789&factionIDs=[0,0,0,0]&lastCallTime=111&matchTypes=[20,21,22,23]&modDLLFile=INVALID&modDllCRC=0&modName=INVALID&modVersion=INVALID&options=["","","",""]&partySessionID=444&raceInfoKey=[0,1,2,3]&raceInfoProfileID=[1,1,1,1]&raceInfoRaceID=[8,8,8,8]&relayPingTimes=[1,1,2,2,3,3,4,4,5]&relayRegion=eastus&relayRegions=["westeurope","ukwest","australiasoutheast","westindia","eastus","southeastasia","brazilsouth","westus2","koreacentral"]&sessionID=zzz&versionFlags=0
 ```
 
-| parameter         | type            | value                                                                                                                    | comments             |
-| ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| appBinCRC         | CRC             | 9876                                                                                                                     |                      |
-| callNum           | int             | 123                                                                                                                      |                      |
-| connect_id        | str             | ccc                                                                                                                      |                      |
-| dataCRC           | int             | 6789                                                                                                                     | backwards appBinCRC? |
-| factionIDs        | array[int]      | [0,0,0,0]                                                                                                                |                      |
-| lastCallTime      | int             | 111                                                                                                                      |                      |
-| matchTypes        | array[int]      | [20,21,22,23]                                                                                                            |                      |
-| modDLLFile        | ?               | INVALID                                                                                                                  |                      |
-| modDllCRC         | int             | 0                                                                                                                        |                      |
-| modName           | str             | INVALID                                                                                                                  |                      |
-| modVersion        | int             | INVALID                                                                                                                  |                      |
-| options           | array[str]      | ["","","",""]                                                                                                            |                      |
-| partySessionID    | int             | 444                                                                                                                      |                      |
-| raceInfoKey       | array[int]      | [0,1,2,3]                                                                                                                |                      |
-| raceInfoProfileID | array[int]      | [1,1,1,1]                                                                                                                |                      |
-| raceInfoRaceID    | array[int]      | [8,8,8,8]                                                                                                                |                      |
-| relayPingTimes    | array[int]      | [1,1,2,2,3,3,4,4,5]                                                                                                      |                      |
-| relayRegion       | str/enum        | eastus                                                                                                                   |                      |
-| relayRegions      | array[str/enum] | ["westeurope","ukwest","australiasoutheast","westindia","eastus","southeastasia","brazilsouth","westus2","koreacentral"] |                      |
-| sessionID         | str             | zzz                                                                                                                      |                      |
-| versionFlags      | int             | 0                                                                                                                        |                      |
-| vetoMapKey        | array[int]      | [0,0]                                                                                                                    | Not in the sample above, sent by current clients |
+| parameter         | type            | value                                                                                                                    | comments                                            |
+| ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
+| appBinCRC         | CRC             | 9876                                                                                                                     |                                                     |
+| callNum           | int             | 123                                                                                                                      |                                                     |
+| connect_id        | str             | ccc                                                                                                                      |                                                     |
+| dataCRC           | int             | 6789                                                                                                                     | backwards appBinCRC?                                |
+| factionIDs        | array[int]      | [0,0,0,0]                                                                                                                |                                                     |
+| lastCallTime      | int             | 111                                                                                                                      |                                                     |
+| matchTypes        | array[int]      | [20,21,22,23]                                                                                                            |                                                     |
+| modDLLFile        | ?               | INVALID                                                                                                                  |                                                     |
+| modDllCRC         | int             | 0                                                                                                                        |                                                     |
+| modName           | str             | INVALID                                                                                                                  |                                                     |
+| modVersion        | int             | INVALID                                                                                                                  |                                                     |
+| options           | array[str]      | ["","","",""]                                                                                                            |                                                     |
+| partySessionID    | int             | 444                                                                                                                      |                                                     |
+| raceInfoKey       | array[int]      | [0,1,2,3]                                                                                                                |                                                     |
+| raceInfoProfileID | array[int]      | [1,1,1,1]                                                                                                                |                                                     |
+| raceInfoRaceID    | array[int]      | [8,8,8,8]                                                                                                                |                                                     |
+| relayPingTimes    | array[int]      | [1,1,2,2,3,3,4,4,5]                                                                                                      |                                                     |
+| relayRegion       | str/enum        | eastus                                                                                                                   |                                                     |
+| relayRegions      | array[str/enum] | ["westeurope","ukwest","australiasoutheast","westindia","eastus","southeastasia","brazilsouth","westus2","koreacentral"] |                                                     |
+| sessionID         | str             | zzz                                                                                                                      |                                                     |
+| versionFlags      | int             | 0                                                                                                                        |                                                     |
+| vetoMapKey        | array[int]      | [0,0]                                                                                                                    | Not in the sample above, sent by current clients    |
 | vetoMaps          | array[str]      | ["Arabia.rms","Arena.rms"]                                                                                               | Not in the sample above, maps banned by this player |
 
 ### Response

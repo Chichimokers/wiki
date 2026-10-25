@@ -23,22 +23,22 @@ without friends still works.
 Profile IDs in the examples: host `2092636891`, invitee `1232055058`, gathering
 `150963865`.
 
-| # | Who | Endpoint | Relevant payload |
-| - | --- | -------- | ---------------- |
-| 1 | host | `POST /game/advertisement/host` | `advertisementid=-1`, `description=SESSION_MATCH_KEY`, `matchtype=1`, `maxplayers=4`, `mapname=`, `visible=0`, `joinable=1`, `passworded=0`, `party=-1`, `team=-1`, `statgroup=-1` |
-| 2 | host | `POST /game/party/peerAdd` | `match_id=150963865`, `profile_ids=[2092636891]`, `race_ids=[0]`, `teamIDs=[-1]` |
-| 3 | host | `POST /game/advertisement/updatePlatformSessionID` | `matchID=150963865`, `onlinePlatform=STEAM`, `platformSessionID=...` |
-| 4 | host | `POST /game/advertisement/update` | same advertisement fields as step 1 |
-| 5 | host | `GET /game/account/FindProfiles?name=c` | called twice, with `c` and `C` (the client re-queries as the text changes) |
-| 6 | host | `POST /game/invitation/extendInvitation` | `gatheringid=150963865`, `gatheringpassword=`, `inviteeid=1232055058` |
-| 7 | server | WSS to invitee | `ExtendInvitationMessage` |
-| 8 | invitee | `GET /game/advertisement/getAdvertisements?match_ids=[150963865]` | |
-| 9 | invitee | `GET /game/account/getProfileName?profile_ids=[-1]` | also seen in working flows, not an error by itself |
-| 10 | invitee | `POST /game/invitation/replyToInvitation` | `gatheringid=150963865`, `invitationreply=0`, `inviterid=2092636891` |
-| 11 | server | WSS to inviter | `ReplyInvitationMessage` |
-| 12 | invitee | `POST /game/advertisement/join` | `advertisementid=150963865`, `party=-1`, `team=-1`, `statgroup=-1`, `race=-1`, `password=` |
-| 13 | host | `POST /game/party/peerAdd` | `match_id=150963865`, `profile_ids=[1232055058]`, `teamIDs=[-1]` |
-| 14 | host | `POST /game/advertisement/update` | advertisement now has two peers |
+| #  | Who     | Endpoint                                                          | Relevant payload                                                                                                                                                                   |
+| -- | ------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1  | host    | `POST /game/advertisement/host`                                   | `advertisementid=-1`, `description=SESSION_MATCH_KEY`, `matchtype=1`, `maxplayers=4`, `mapname=`, `visible=0`, `joinable=1`, `passworded=0`, `party=-1`, `team=-1`, `statgroup=-1` |
+| 2  | host    | `POST /game/party/peerAdd`                                        | `match_id=150963865`, `profile_ids=[2092636891]`, `race_ids=[0]`, `teamIDs=[-1]`                                                                                                   |
+| 3  | host    | `POST /game/advertisement/updatePlatformSessionID`                | `matchID=150963865`, `onlinePlatform=STEAM`, `platformSessionID=...`                                                                                                               |
+| 4  | host    | `POST /game/advertisement/update`                                 | same advertisement fields as step 1                                                                                                                                                |
+| 5  | host    | `GET /game/account/FindProfiles?name=c`                           | called twice, with `c` and `C` (the client re-queries as the text changes)                                                                                                         |
+| 6  | host    | `POST /game/invitation/extendInvitation`                          | `gatheringid=150963865`, `gatheringpassword=`, `inviteeid=1232055058`                                                                                                              |
+| 7  | server  | WSS to invitee                                                    | `ExtendInvitationMessage`                                                                                                                                                          |
+| 8  | invitee | `GET /game/advertisement/getAdvertisements?match_ids=[150963865]` |                                                                                                                                                                                    |
+| 9  | invitee | `GET /game/account/getProfileName?profile_ids=[-1]`               | also seen in working flows, not an error by itself                                                                                                                                 |
+| 10 | invitee | `POST /game/invitation/replyToInvitation`                         | `gatheringid=150963865`, `invitationreply=0`, `inviterid=2092636891`                                                                                                               |
+| 11 | server  | WSS to inviter                                                    | `ReplyInvitationMessage`                                                                                                                                                           |
+| 12 | invitee | `POST /game/advertisement/join`                                   | `advertisementid=150963865`, `party=-1`, `team=-1`, `statgroup=-1`, `race=-1`, `password=`                                                                                         |
+| 13 | host    | `POST /game/party/peerAdd`                                        | `match_id=150963865`, `profile_ids=[1232055058]`, `teamIDs=[-1]`                                                                                                                   |
+| 14 | host    | `POST /game/advertisement/update`                                 | advertisement now has two peers                                                                                                                                                    |
 
 The advertisement ID returned by `advertisement/host` (here `150963865`) is the
 `gatheringid` used by every invitation call and by `party/peerAdd` as

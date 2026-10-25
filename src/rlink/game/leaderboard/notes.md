@@ -16,10 +16,10 @@ history render in a local RLink-compatible server
 
 ```jsonc
 [
-    0,                 // result status code
-    [ /* statGroups */ ],
-    [ /* profileInfos */ ],
-    [ /* leaderboardStats */ ]
+    0, // result status code
+    [/* statGroups */],
+    [/* profileInfos */],
+    [/* leaderboardStats */],
 ]
 ```
 
@@ -49,23 +49,23 @@ when you can fill all three positions, and skip the player otherwise.
 
 ## profileInfo (14 or 15 fields)
 
-| Index | Field                  | Notes                                                   |
-| ----- | ---------------------- | ------------------------------------------------------- |
-| 0     | entityVersion          | Unix timestamp, only needs to be stable                 |
-| 1     | profileID              |                                                         |
-| 2     | name                   | Platform path, e.g. `/steam/76561199163227629`          |
-| 3     | metaData               | Avatar metadata as a JSON string, `""` when none        |
-| 4     | alias                  | Display name                                            |
-| 5     | sanitizedAlias         | Only for clients with lib version >= 190                |
-| 6     | clanName               | Empty string when the player has no clan                |
-| 7     | personalStatGroupID    |                                                         |
-| 8     | xp                     |                                                         |
-| 9     | level                  |                                                         |
-| 10    | leaderboardRegionID    |                                                         |
-| 11    | banInfo                | `null` when the player is not banned                    |
-| 12    | platformUserID         | **String**, not a number (e.g. `"76561199163227629"`)   |
-| 13    | accountType            | `3` Steam, `9` Xbox                                     |
-| 14    | linkedPlatformAccounts | Empty array when none                                   |
+| Index | Field                  | Notes                                                 |
+| ----- | ---------------------- | ----------------------------------------------------- |
+| 0     | entityVersion          | Unix timestamp, only needs to be stable               |
+| 1     | profileID              |                                                       |
+| 2     | name                   | Platform path, e.g. `/steam/76561199163227629`        |
+| 3     | metaData               | Avatar metadata as a JSON string, `""` when none      |
+| 4     | alias                  | Display name                                          |
+| 5     | sanitizedAlias         | Only for clients with lib version >= 190              |
+| 6     | clanName               | Empty string when the player has no clan              |
+| 7     | personalStatGroupID    |                                                       |
+| 8     | xp                     |                                                       |
+| 9     | level                  |                                                       |
+| 10    | leaderboardRegionID    |                                                       |
+| 11    | banInfo                | `null` when the player is not banned                  |
+| 12    | platformUserID         | **String**, not a number (e.g. `"76561199163227629"`) |
+| 13    | accountType            | `3` Steam, `9` Xbox                                   |
+| 14    | linkedPlatformAccounts | Empty array when none                                 |
 
 The sample in [getLeaderBoard](./getleaderboard.md) has the 14-field form
 (without `sanitizedAlias`), because it was captured with an older client. In
@@ -74,27 +74,27 @@ index 5 and `linkedPlatformAccounts` at index 13.
 
 ## leaderboardStat (19 fields)
 
-| Index | Field            | Notes                                         |
-| ----- | ---------------- | --------------------------------------------- |
-| 0     | statGroupID      |                                               |
-| 1     | leaderboardID    | Ladder ID, `3` for 1v1 random map             |
-| 2     | wins             |                                               |
-| 3     | losses           |                                               |
-| 4     | streak           |                                               |
-| 5     | disputes         | `0` when unused                               |
-| 6     | drops            |                                               |
-| 7     | ranking          | `-1` when unranked                           |
-| 8     | rankTotal        | `-1` when unranked                           |
-| 9     | regionRanking    | `-1` when unused                              |
-| 10    | regionRankTotal  | `-1` when unused                              |
-| 11    | level            |                                               |
-| 12    | rating           | MMR / Elo                                     |
-| 13    | lastMatchTime    | Unix timestamp                                |
-| 14    | highestRank      |                                               |
-| 15    | highestRankLevel |                                               |
-| 16    | highestRating    |                                               |
-| 17    | platformRank     | Only for clients with lib version >= 190      |
-| 18    | platformRankTotal| Only for clients with lib version >= 190      |
+| Index | Field             | Notes                                    |
+| ----- | ----------------- | ---------------------------------------- |
+| 0     | statGroupID       |                                          |
+| 1     | leaderboardID     | Ladder ID, `3` for 1v1 random map        |
+| 2     | wins              |                                          |
+| 3     | losses            |                                          |
+| 4     | streak            |                                          |
+| 5     | disputes          | `0` when unused                          |
+| 6     | drops             |                                          |
+| 7     | ranking           | `-1` when unranked                       |
+| 8     | rankTotal         | `-1` when unranked                       |
+| 9     | regionRanking     | `-1` when unused                         |
+| 10    | regionRankTotal   | `-1` when unused                         |
+| 11    | level             |                                          |
+| 12    | rating            | MMR / Elo                                |
+| 13    | lastMatchTime     | Unix timestamp                           |
+| 14    | highestRank       |                                          |
+| 15    | highestRankLevel  |                                          |
+| 16    | highestRating     |                                          |
+| 17    | platformRank      | Only for clients with lib version >= 190 |
+| 18    | platformRankTotal | Only for clients with lib version >= 190 |
 
 The sample in [getLeaderBoard](./getleaderboard.md) shows a 14-field form
 (`statGroupID` through `lastMatchTime`), captured before `highest*` and
@@ -120,31 +120,31 @@ map queue IDs to ladder IDs instead of reusing one for the other.
 
 ```jsonc
 [
-    0,          // result status code
-    [ /* matches */ ]
+    0, // result status code
+    [/* matches */],
 ]
 ```
 
 Each match has **16 fields**:
 
-| Index | Field                      | Notes                                                    |
-| ----- | -------------------------- | -------------------------------------------------------- |
-| 0     | matchHistoryID             |                                                          |
-| 1     | creatorProfileID           |                                                          |
-| 2     | mapName                    |                                                          |
-| 3     | maxPlayers                 |                                                          |
-| 4     | matchTypeID                | `0` custom, `26` for a 1v1 ranked automatch              |
-| 5     | encodedOptions             | Opaque string                                            |
-| 6     | encodedSlots               | Opaque string                                            |
-| 7     | description                | `"AUTOMATCH"` for automatch, the map name for customs    |
-| 8     | startGameTime              | Unix timestamp                                           |
-| 9     | completionTime             | Unix timestamp                                           |
-| 10    | observerTotal              |                                                          |
-| 11    | matchHistoryReportResults  | See below                                                |
-| 12    | matchHistoryItems          | Empty array when there are none                          |
-| 13    | matchUrls                  | Empty array when there are no replays                    |
-| 14    | matchVersionInfo           | 7 fields, e.g. `["INVALID","INVALID","INVALID",0,0,0,0]` |
-| 15    | matchHistoryMemberStats    | See below                                                |
+| Index | Field                     | Notes                                                    |
+| ----- | ------------------------- | -------------------------------------------------------- |
+| 0     | matchHistoryID            |                                                          |
+| 1     | creatorProfileID          |                                                          |
+| 2     | mapName                   |                                                          |
+| 3     | maxPlayers                |                                                          |
+| 4     | matchTypeID               | `0` custom, `26` for a 1v1 ranked automatch              |
+| 5     | encodedOptions            | Opaque string                                            |
+| 6     | encodedSlots              | Opaque string                                            |
+| 7     | description               | `"AUTOMATCH"` for automatch, the map name for customs    |
+| 8     | startGameTime             | Unix timestamp                                           |
+| 9     | completionTime            | Unix timestamp                                           |
+| 10    | observerTotal             |                                                          |
+| 11    | matchHistoryReportResults | See below                                                |
+| 12    | matchHistoryItems         | Empty array when there are none                          |
+| 13    | matchUrls                 | Empty array when there are no replays                    |
+| 14    | matchVersionInfo          | 7 fields, e.g. `["INVALID","INVALID","INVALID",0,0,0,0]` |
+| 15    | matchHistoryMemberStats   | See below                                                |
 
 `matchHistoryReportResults` entries have **9 fields**:
 

@@ -21,14 +21,14 @@ Pragma: no-cache
 callNum=61&connect_id=yam8gu2dsn23p8fazf6oycimo3433p&gatheringid=150963865&invitationreply=0&inviterid=2092636891&sessionID=yam8gu2dsn23p8fazf6oycimo3433p
 ```
 
-| parameter       | type | value      | comments                                                              |
-| --------------- | ---- | ---------- | --------------------------------------------------------------------- |
-| callNum         | int  | 61         |                                                                       |
-| connect_id      | str  |            |                                                                       |
-| gatheringid     | int  | 150963865  | Advertisement ID of the party/lobby, the same sent in the invitation   |
-| invitationreply | int  | 0          | Reply code, see the note below                                        |
-| inviterid       | int  | 2092636891 | Profile ID of the inviter (not the stat group ID)                     |
-| sessionID       | str  |            |                                                                       |
+| parameter       | type | value      | comments                                                             |
+| --------------- | ---- | ---------- | -------------------------------------------------------------------- |
+| callNum         | int  | 61         |                                                                      |
+| connect_id      | str  |            |                                                                      |
+| gatheringid     | int  | 150963865  | Advertisement ID of the party/lobby, the same sent in the invitation |
+| invitationreply | int  | 0          | Reply code, see the note below                                       |
+| inviterid       | int  | 2092636891 | Profile ID of the inviter (not the stat group ID)                    |
+| sessionID       | str  |            |                                                                      |
 
 No `lastCallTime` was present in the captured request.
 
